@@ -14,7 +14,7 @@ function Progress() {
   const token = localStorage.getItem('token');
 
   const fetchEntries = () => {
-    fetch('http://localhost:3000/progress', {
+    fetch(`${import.meta.env.VITE_API_URL}/progress`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(r => r.json())
@@ -28,7 +28,7 @@ function Progress() {
     e.preventDefault();
     if (!form.weight) return toast.error('Weight is required');
     try {
-      const res = await fetch('http://localhost:3000/progress/add', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/progress/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({
@@ -55,7 +55,7 @@ function Progress() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3000/progress/delete/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/progress/delete/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

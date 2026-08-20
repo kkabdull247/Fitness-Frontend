@@ -24,7 +24,7 @@ function EditMealForm() {
   const getmealbyId = async () => {
     try {
       const token = localStorage.getItem("token");
-      fetch(`http://localhost:3000/meal/getmealbyid/${id}`, {
+      fetch(`${import.meta.env.VITE_API_URL}/meal/getmealbyid/${id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ function EditMealForm() {
     }
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:3000/meal/update/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/meal/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ function EditMealForm() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:3000/food", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/food`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

@@ -115,7 +115,7 @@ function Profile() {
       payload.append(key, formData[key]);
     });
 
-    const response = await fetch("http://localhost:3000/editProfile", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/editProfile`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,

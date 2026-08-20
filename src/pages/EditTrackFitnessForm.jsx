@@ -19,7 +19,7 @@ function EditTrackFitnessForm() {
     const fetchExercises = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:3000/exercise", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/exercise`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -34,7 +34,7 @@ function EditTrackFitnessForm() {
     const fetchWorkout = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:3000/workout/getbyid/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/workout/getbyid/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -77,7 +77,7 @@ function EditTrackFitnessForm() {
         sets: sets.map(s => ({ reps: Number(s.reps), weight: Number(s.weight) })),
         notes
       };
-      const response = await fetch(`http://localhost:3000/workout/update/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/workout/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(workoutData)

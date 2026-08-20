@@ -38,7 +38,7 @@ function Workout() {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:3000/exercise/add", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/exercise/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function Workout() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:3000/exercise", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/exercise`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -82,7 +82,7 @@ function Workout() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:3000/exercise/delete/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/exercise/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -116,7 +116,7 @@ function Workout() {
 
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:3000/exercise/edit/${editingExercise._id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/exercise/edit/${editingExercise._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -143,7 +143,7 @@ function Workout() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:3000/workout", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/workout`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -159,7 +159,7 @@ function Workout() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:3000/workout/delete/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/workout/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

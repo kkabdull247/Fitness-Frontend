@@ -14,7 +14,7 @@ function StartWorkoutForm() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/exercise", {
+    fetch(`${import.meta.env.VITE_API_URL}/exercise`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(r => r.json())
@@ -40,7 +40,7 @@ function StartWorkoutForm() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:3000/workout/add", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/workout/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

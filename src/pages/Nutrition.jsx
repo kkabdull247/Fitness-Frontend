@@ -47,7 +47,7 @@ function Nutrition() {
         e.preventDefault();
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:3000/food/add", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/food/add`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -78,7 +78,7 @@ function Nutrition() {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch("http://localhost:3000/food", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/food`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
@@ -94,7 +94,7 @@ function Nutrition() {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`http://localhost:3000/food/delete/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/food/delete/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -129,7 +129,7 @@ function Nutrition() {
 
         const token = localStorage.getItem("token");
 
-        const response = await fetch(`http://localhost:3000/food/edit/${editingFood._id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/food/edit/${editingFood._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -160,7 +160,7 @@ function Nutrition() {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch("http://localhost:3000/meal", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/meal`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
@@ -176,7 +176,7 @@ function Nutrition() {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`http://localhost:3000/meal/delete/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/meal/delete/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`

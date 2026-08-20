@@ -21,7 +21,7 @@ function TrackFitnessForm() {
     const fetchExercises = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:3000/exercise", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/exercise`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -55,7 +55,7 @@ function TrackFitnessForm() {
         sets: sets.map(s => ({ reps: Number(s.reps), weight: Number(s.weight) })),
         notes
       };
-      const response = await fetch("http://localhost:3000/workout/add", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/workout/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

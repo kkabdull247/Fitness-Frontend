@@ -17,8 +17,8 @@ function Dashboard() {
     const headers = { Authorization: `Bearer ${token}` };
 
     Promise.all([
-      fetch("http://localhost:3000/workout", { headers }).then(r => r.json()),
-      fetch("http://localhost:3000/meal", { headers }).then(r => r.json())
+      fetch(`${import.meta.env.VITE_API_URL}/workout`, { headers }).then(r => r.json()),
+      fetch(`${import.meta.env.VITE_API_URL}/meal`, { headers }).then(r => r.json())
     ]).then(([wData, mData]) => {
       setWorkouts(wData.workouts || []);
       setMeals(mData.meal || []);

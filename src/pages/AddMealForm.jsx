@@ -32,7 +32,7 @@ function AddMealForm() {
     }
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:3000/meal/add", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/meal/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function AddMealForm() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:3000/food", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/food`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
